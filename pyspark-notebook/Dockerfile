@@ -15,12 +15,12 @@ RUN apt-get -y update && \
 
 
 # Spark dependencies
-ENV APACHE_SPARK_VERSION 2.3.3
+ENV APACHE_SPARK_VERSION 2.3.4
 ENV HADOOP_VERSION 2.7
 
 RUN cd /tmp && \
         wget -q http://mirrors.ocf.berkeley.edu/apache/spark/spark-${APACHE_SPARK_VERSION}/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
-        echo "27CF9AD268E684D6926201BB5478F7F5A410659972BC79FC14AF61245EFF50C9A4363E400311B2FA9E1326E8AF1EB6DDE1D359B88B9143F25A49B3E11596B002 *spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" | sha512sum -c - && \
+        echo "9fbefce2739990ffede6968a9c2f3fe399430556163bfdabdf5737a8f9e52cd535489f5ca7d641039a87700f50bfd91a706ca47979ee51a3a18787a92e2d6d53 *spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" | sha512sum -c - && \
         tar xzf spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -C /usr/local --owner root --group root --no-same-owner && \
         rm spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 RUN cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark
